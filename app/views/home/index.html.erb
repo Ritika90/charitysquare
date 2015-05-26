@@ -1,0 +1,30 @@
+
+<h1 align='center'>Charity squares</h1>
+
+<div class="large-6 columns about-box">
+<div class="black-box">
+<h2>Register to Join</h2>
+<p>We’re an adoption center that focuses on providing homes for rehabilitated dogs. We believe all dogs deserve a second chance at life.
+</p><p>Interested in adopting?</p>
+<%= link_to "Sign up", {:controller => "home", :action => "user_signup" } ,:class =>"secondary small button" %>
+</div>
+</div>
+<div class="large-6 columns about-box">
+<div class="black-box">
+<h2>Are you charity raiser</h2>
+<p>We’re an adoption center that focuses on providing homes for rehabilitated dogs. We believe all dogs deserve a second chance at life.
+</p><p>Interested in adopting?</p>
+
+<%= link_to "Sign up", {:controller => "home", :action => "charity_signup" } ,:class =>"secondary small button" %>
+</div>
+</div>
+
+
+
+<style>
+.black-box {
+  background-color: rgba(0, 0, 0, 0.55);
+  font-weight: 900;
+  padding: 35px;
+}
+</style>
