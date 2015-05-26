@@ -1,5 +1,11 @@
 <h1> Sign up as a charity </h1>
+<div id="error">
+        <% if flash[:errors] && !flash[:errors].empty? then -%>
 
+        <p ><%= flash[:errors] %></p>
+
+        <% end -%>
+</div>
 
 
        <%= form_for(:user, :url => user_registration_path) do |f| %>

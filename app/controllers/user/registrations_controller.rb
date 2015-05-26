@@ -10,9 +10,15 @@ class User::RegistrationsController < Devise::RegistrationsController
    def create
     puts '----------------------------------------------------'
     @params=User.new sign_up_params
-     @params.save
-    render :plain =>sign_up_params.inspect
-    
+    if @params.save
+        render json: @params
+    else
+        #render json: @params.errors.messages
+         flash[:errors] = @params.errors.messages
+          
+          redirect_to(home_charity_signup_path)
+         
+      end
    
    end
 
@@ -44,7 +50,9 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) << :attribute
+     devise_parameter_sanitizer.for(:sign_up) do |u|
+     u.permit :email, :password, :password_confirmation, :latitude
+    end
    end
 
   # If you have extra params to permit, append them to the sanitizer.
