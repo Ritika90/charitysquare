@@ -5,10 +5,9 @@ class HomeController < ApplicationController
 
  def charity_signup
  end
-  
-
-
-
  
+ def login
+ end 
+
 
 end

@@ -15,8 +15,7 @@ class User::RegistrationsController < Devise::RegistrationsController
     else
         #render json: @params.errors.messages
          flash[:errors] = @params.errors.messages
-          
-          redirect_to(home_charity_signup_path)
+         redirect_to(home_charity_signup_path)
          
       end
    
@@ -51,7 +50,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
      devise_parameter_sanitizer.for(:sign_up) do |u|
-     u.permit :email, :password, :password_confirmation, :latitude
+     u.permit :email, :password, :password_confirmation, :address
     end
    end
 
