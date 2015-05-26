@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   root 'home#index'
     get '/home/charity_signup' =>'home#charity_signup'
        get '/home/user_signup' =>'home#user_signup'
+        get '/home/login' => 'home#login'
   # Example of regular route:
   get '/home/:search' => 'home#index'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
