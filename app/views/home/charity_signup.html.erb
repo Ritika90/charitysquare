@@ -8,7 +8,12 @@
 </div>
 
 
-       <%= form_for(:user, :url => user_registration_path) do |f| %>
+       <%= form_for(:user, :url => user_registration_path  ,:html => { :id =>'charity_form' }) do |f| %>
+
+       <div class="field hidden">
+		    
+		    <%= f.text_field :formtype, autocomplete: "off",:value =>'charityform' %>
+		  </div>
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true %>
@@ -28,7 +33,7 @@
 		  </div>
 
 		    <div class="field">
-		    <%= f.label :latitude %><br />
+		    <%= f.label :address %><br />
 		    <%= f.text_field :address, autocomplete: "off" %>
 		  </div>
           

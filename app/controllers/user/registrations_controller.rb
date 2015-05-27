@@ -8,17 +8,41 @@ class User::RegistrationsController < Devise::RegistrationsController
    end
 
    def create
-    puts '----------------------------------------------------'
-    @params=User.new sign_up_params
-    if @params.save
-        render json: @params
-    else
-        #render json: @params.errors.messages
-         flash[:errors] = @params.errors.messages
-         redirect_to(home_charity_signup_path)
-         
-      end
+    puts '---------------------------------------------------------'
+      
+       @allparams=params[:user]
+       if params[:user].has_key?([:form_type])
+       puts 'helo'
+        end 
+       puts'-------------------------------------------------------'
+     #    if(params[:user].has_key?(:form_type))
+
+     #    @params=User.new sign_up_params
+     #    if @params.save
+     #        render json: @params
+     #    else
+     #        #render json: @params.errors.messages
+     #         flash[:errors] = @params.errors.messages
+     #         redirect_to(home_charity_signup_path)
+             
+     #    end
+     #   end
+
+     # else
+     #   @params=User.new sign_up_params
+     #    if @params.save
+     #        render json: @params
+     #    else
+     #        #render json: @params.errors.messages
+     #         flash[:errors] = @params.errors.messages
+     #         redirect_to(home_user_signup_path)
+             
+     #    end
+
+       
    
+
+
    end
 
   # GET /resource/edit
@@ -50,7 +74,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
      devise_parameter_sanitizer.for(:sign_up) do |u|
-     u.permit :email, :password, :password_confirmation, :address
+     u.permit :email, :password, :password_confirmation, :address ,:form_type
     end
    end
 
